@@ -3,3 +3,4 @@ target
 snfoundry_trace/
 coverage/
 profile/
+scarb_metadata_formatv1.json
