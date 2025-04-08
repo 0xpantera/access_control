@@ -4,15 +4,15 @@ use snforge_std::{
     declare, ContractClassTrait, DeclareResultTrait,  
     start_cheat_caller_address, stop_cheat_caller_address
 };
-use access_control::utils::{get_deployer, deploy_eth, one_ether, mint_erc20};
-use openzeppelin::token::erc20::interface::{IERC20Dispatcher, IERC20DispatcherTrait};
+use access_control::utils::helpers::{get_deployer, deploy_eth, one_ether, mint_erc20};
+use openzeppelin::token::erc20::interface::{IERC20DispatcherTrait};
 
 // Importing the dispatcher and the dispatcher trait of the fee collector contract
-use access_control::fee_collector::{
+use access_control::missing_assert::fee_collector::{
     IFeeCollectorDispatcher, IFeeCollectorDispatcherTrait
 };
 
-use access_control::fixed_fee_collector::{
+use access_control::missing_assert::fixed_fee_collector::{
     IFixedFeeCollectorDispatcher, IFixedFeeCollectorDispatcherTrait
 };
 

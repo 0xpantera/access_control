@@ -5,16 +5,11 @@ pub trait IFixedFeeCollector<TContractState> {
     fn collect_fees(ref self: TContractState);
 }
 
-mod Errors {
-    pub const NOT_OWNER: felt252 = 'must be contract owner';
-}
-
 // The contract FeeCollector is a contract which collects fees and allows the owner to set the fee.
 // The contract has a storage which contains the owner, the token to collect fees from and the fee
 // in basis points.
 #[starknet::contract]
 mod FixedFeeCollector {
-    use super::Errors;
     use openzeppelin::token::erc20::interface::{IERC20Dispatcher, IERC20DispatcherTrait};
     use openzeppelin::access::ownable::OwnableComponent;
     use starknet::storage::{StoragePointerReadAccess, StoragePointerWriteAccess};

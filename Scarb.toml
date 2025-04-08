@@ -3,12 +3,11 @@ name = "access_control"
 version = "0.1.0"
 edition = "2024_07"
 
-# See more keys and their definitions at https://docs.swmansion.com/scarb/docs/reference/manifest.html
-
 [dependencies]
 starknet = "2.11.1"
 alexandria_math = { git = "https://github.com/keep-starknet-strange/alexandria.git" }
 openzeppelin = "1.0.0"
+snforge_std = "0.38.3"
 
 [dev-dependencies]
 snforge_std = "0.38.3"
