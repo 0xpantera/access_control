@@ -48,7 +48,7 @@ fn deploy_fixed_collector(currency: ContractAddress) -> (ContractAddress, IFixed
 }
 
 #[test]
-fn test_access_control_1() {
+fn test_fee_collector() {
     // Deploying the ETH token and the fee collector contracts
     let (eth_address, eth_dispatcher) = deploy_eth();
     let (collector_address, collector_dispatcher) = deploy_collector(eth_address);
@@ -94,7 +94,7 @@ fn test_access_control_1() {
 
 #[test]
 #[should_panic(expected: 'Caller is not the owner')]
-fn test_access_control_fixed() {
+fn test_fixed_fee_collector() {
     // Deploying the ETH token and the fee collector contracts
     let (eth_address, eth_dispatcher) = deploy_eth();
     let (collector_address, collector_dispatcher) = deploy_fixed_collector(eth_address);
